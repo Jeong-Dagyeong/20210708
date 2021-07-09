@@ -3,6 +3,7 @@
     <table class="table">
         <tbody>
             <tr v-for="(item,idx) in items" v-bind:key="item.no">
+            
             <td>
                 <div class="form-check">
                 <input class="form-check-input" type="checkbox" v-model="chks" v-bind:value="idx" id="flexCheckDefault">
@@ -13,8 +14,15 @@
             </td>
             <td>{{item.title}}</td>
             <td>{{item.price}}</td>
-            <td>{{item.cnt}}</td>
             </tr>
+            <td>
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" v-model="chks1" v-bind:value="idx1" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    {{item.cnt}}
+                </label>
+                </div>
+            </td>
             <tr>
                 <td colspan="2">합계</td>
                 <td>{{ sumPrice1() }}</td>
@@ -69,8 +77,9 @@
         },
         sumCnt1(){
             let sum = 0; //초기값
-            for(let i=0; i<this.items.length; i++){ //3번 반복
-                sum = sum + this.items[i].cnt; //100 + 200 + 300
+            for(let i=0; i<this.chks1.length; i++){ //3번 반복
+            const chkidx1 = this.chks1[i];
+                sum = sum + this.items[chkidx1].cnt; //100 + 200 + 300
             }
             return sum;
         },
