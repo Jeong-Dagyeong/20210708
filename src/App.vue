@@ -2,7 +2,7 @@
 <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Wellcome</a>
+    <a class="navbar-brand" href="#">Wellcome to 다경's homepage</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,8 +30,11 @@
         <li class="nav-item">
           <router-link to="/shop" class="nav-link active" aria-current="page">Shop</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/OrderList2" class="nav-link active" aria-current="page">OrderList2</router-link>
+        </li>
       </ul>
-      <form class="d-flex">
+      <form class="d-flex" >
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
@@ -42,17 +45,10 @@
 
 </div>
 
-<div class="alert alert-primary" role="alert">
-홈페이지에 오신걸 환영합니다!!!!!!!!!!!
-</div>
-  <div>
-    <router-link to="/">Home</router-link>  |  
-    <router-link to="/Login">Login</router-link> |
-    <router-link to="/join">Join</router-link> |
-    <router-link to="/board">Board</router-link>
-    <hr />
+<div class="alert alert-primary" role="alert">홈페이지에 오신걸 환영합니다!!!!!!!!!!!</div>
+  
     <router-view></router-view>
-  </div>
+  
 </template>
 
 <script>
@@ -68,7 +64,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
+  text-align: center; 
   color: #2c3e50;
   margin-top: 0px;
 }
