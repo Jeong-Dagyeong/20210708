@@ -11,6 +11,7 @@ import Shop from '@/components/Shop';
 import OrderList from '@/components/OrderList';
 import OrderList1 from '@/components/OrderList1';
 import OrderList2 from '@/components/OrderList2';
+import Admin from '@/components/Admin';
 
 // 주소 설정
 const routes= [
@@ -23,6 +24,7 @@ const routes= [
     { path:"/OrderList", name:"OrderList", component:OrderList },
     { path:"/OrderList1", name:"OrderList1", component:OrderList1 },
     { path:"/OrderList2", name:"OrderList2", component:OrderList2 },
+    { path:"/Admin", name:"Admin", component:Admin },
 ];
 
 const router = createRouter({
