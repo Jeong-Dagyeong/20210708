@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <app-header></app-header>
+    <div>내용들</div>
+    <app-join></app-join>
+    <app-footer title="가나다"></app-footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/javascripts/appHeader.js"></script>
+    <script src="/javascripts/appFooter.js"></script>
+    <script src="/javascripts/appJoin.js"></script>
+   
+    <script>
+       
+        
+
+            new Vue({
+                el : '#app',
+                components : {
+                    'app-header' : appHeader,
+                    'app-footer' : appFooter,
+                    'app-join' : appJoin
+
+                }
+            });
+
+    </script>
+</body>
+</html>

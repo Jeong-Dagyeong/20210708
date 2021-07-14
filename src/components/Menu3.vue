@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <div v-if="changeView ===1">
+        <!-- if문을 썼기 때문에 페이지가 동시에 나올 수 없다. -->
+        <div v-if="changeView === 1"> 
             <table class="table">
                 <thead>
                     <tr>
@@ -23,7 +24,7 @@
             </table>
         </div>
     
-        <div v-if="changeView ===2">
+        <div v-if="changeView === 2">
             <table class="table">
                 <thead>
                     <tr>
@@ -56,6 +57,7 @@
         data(){
             return{
                 items : [],
+                
                 changeView : 1,
                 
 
@@ -93,11 +95,12 @@
                 }
                 this.items = tmp;
                 */
+                
 
                 // items => [{},{},{}]
                 // i     =>  0 1 2 
                 // item === items[i]  => {}
-                for(let i=0;i<this.chks.length;i++){
+                for(let i=0;i<this.items.length;i++){
                     if(this.items[i].chk === false) { //삭제하지 않은 항목 이동
                         tmp.push(this.items[i]);  
                     }

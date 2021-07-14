@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-show="!isModalViewed">
+        <input type="button" value="모달창 표시" v-on:click="showModal()" />
+        </div>
+
+        <div v-show="isModalViewed">
+            <app-modal v-on:callmain="hideModal()"></app-modal>
+            <app-table title="테이블" v-bind:name="nameVal"></app-table>
+            <app-calc v-bind:result="num1" v-on:addplus="addParentNum1()" ></app-calc>
+        </div> 
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var appCalc = {
+            template :`
+                <div>
+                    <input type="button" value="숫자증가" v-on:click="addNum1()" />
+                    <span>{{result}}</span>
+
+                </div>
+            `,
+            methods : {
+                //1번 부모의 메소드를 호출
+            },
+            props : ['result'],
+            methods : {
+                addNum1() {
+                    //여기서는 수행X, 부모의 num1을 변경시켜야 최종적으로 result
+                    this.$emit('addplus');
+                }
+            }
+            
+            
+        };
+
+        var appTable = {
+            template :`
+            <div style="border :1px solid #cccccc; margin:0px auto; padding:30px; width:300px; ">
+                <h4>{{title}}</h4>
+                {{name}}
+                {{name1}}
+            </div>
+            `,
+            props : ['title', 'name'],
+            data() { //state 데이터가 변화시키는 것을 보관하는 용도
+                return {
+                    name1: this.name //props로 넘어오는 값을 보관
+                    
+                }
+            },
+        };
+        var appModal = {
+            template :`
+            <div style="border :1px solid #cccccc; margin:0px auto; padding:30px; width:300px; ">
+                <h4>모달창</h4>
+                <input type="text" />
+                <input type="button" v-on:click="closeModal()" value="닫기" />
+
+            </div>
+            `,
+            methods : {
+                closeModal(){
+                    //부모 컴포넌트의 특정 메소드를 호출해야 함.
+                    this.$emit("callmain");
+                }
+            }
+        }
+        new Vue({
+            el : '#app',
+            components : {
+                'app-modal' : appModal,
+                'app-table' : appTable,
+                'app-calc' : appCalc
+            },
+            data() {
+                return {
+                    isModalViewed : false,
+                    nameVal : 'a12',
+                    num1 : 10
+                }
+            },
+            methods : {
+                showModal() {
+                    this.isModalViewed = true;
+                },
+                hideModal(){
+                    this.isModalViewed = false;
+                },
+                addParentNum1() {
+                    this.num1++;
+                    //this.num1= this.num1 +1; 
+                }
+
+            }
+
+        });
+
+    </script>
+</body>
+</html>

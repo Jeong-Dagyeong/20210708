@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    제목 : <input type="text" v-model="title" readonly /><br />
+    내용 : <textarea rows="6" v-model="content" ></textarea><br />
+    작성자 : <input type="text" v-model="writer" /><br />
+    조회수 : <input type="text" v-model="hit" /><br />
+    날짜 : <input type="text" v-model="regdate" readonly /><br />
+    이미지 : <img v-bind:src="img" width="50px" height="50px" /><br />
+    <input type="button" value="삭제" v-on:click="deleteContent()"  />
+    <input type="button" value="수정" v-on:click="updateContent()" />
+    <div v-if="is_show">
+        <h4>여기는 is_show가 참일때만 보입니다.</h4>
+        <input type="text" value="" />
+    <a href="/vue/board_list">목록으로</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+        new Vue( {       
+            el : '#app',
+            data : {
+                is_show : false,
+                _id : '',
+                title : '',
+                content : '',
+                writer : '',
+                hit : '',
+                regdate : '',
+                img : ''
+                
+            },
+            methods : {
+                async deleteContent(){
+                    const ret = confirm('삭제 할까요?');
+                    if(ret){
+                        try{
+                            const url = "/api/board_delete.json";
+                            const headers = {
+                                "Content-Type" : "application/json"
+                        };
+                            const data = {_id : this._id};
+                            const response = await axios.delete(url, {data, headers});
+                            console.log(response.data);
+
+                            if(response.data.ret ===1){
+                                window.location.href='/vue/board_list';
+                            }
+                            else{
+                                alert('오류가 발생했습니다.');
+                            }
+                        }
+                        catch(err){
+
+                        }
+                    }
+                }
+            },
+            async updateContent(){
+                this.is_show = !this.is_show;
+            },
+            async mounted(){
+                // ?_id=~~~~~~~~
+                const tmp0 = window.location.search;
+                const tmp1 = tmp0.split("=")[1];
+                //console.log(tmp1,typeof(tmp1));
+
+                try{
+                    const headers={
+                        "Content-Type" : "application/json"
+                    };
+                    const url = '/api/board_content.json?_id=' + tmp1;
+                    const {data} = await axios.get(url,headers);
+                    console.log(data);
+
+                    if(data.ret ===1){
+                        this._id = data.rows._id;
+                        this.title = data.rows.title;
+                        this.content = data.rows.content;
+                        this.writer = data.rows.content;
+                        this.img = '/api/board_image?_id=' + tmp1;
+                    }
+
+                }
+                catch(err){
+                    console.error(err);
+                }
+
+            }
+        });
+    </script>
+
+</body>
+</html>

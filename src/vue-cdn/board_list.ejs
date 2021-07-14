@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app">
+        <table border="2">
+            <tr>
+                <th>_id</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+                <th>날짜</th>
+            </tr>
+            <tr v-for="tmp in brdList">
+                <td>{{tmp._id}}</td>
+                <td><a href="#" v-on:click="linkEvent(tmp._id)">{{tmp.title}}</a></td>
+                <td>{{tmp.content}}</td>
+                <td>{{tmp.hit}}</td>
+                <td>{{tmp.regdate}}</td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+        new Vue( {       
+            el : '#app',
+            async mounted() {
+                try{
+                    const headers = {
+                        "content-Type" : "application/json"
+                    };
+                    const {data} = await axios.get('/api/board_list.json', headers);
+                    console.log(data);
+                    if(data.ret ===1){
+                        this.brdList = data.rows;
+                        }
+                    }
+
+                    catch(err){
+                        console.error(err);
+                    }
+                },
+                data : {
+                    brdList : [],
+                },
+                methods : {
+                    linkEvent : function(_id){
+                        //linkEvent : () => {
+                            window.location.href='/vue/board_content?_id=' + _id;
+                    }
+                }
+        
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>veu ex01 실습</h3>
+    <div id="app">
+        <h4>{{massage}}</h4>
+        <h4 v-text="massage"></h4>  <!--innerText-->
+        <h4 v-html="massage"></h4>  <!--innerHtml-->
+        <input type="text" v-bind:value="massage" />
+        <table border="1">
+            <!--for(let tmp of memebers {      })-->
+            <tr v-for="tmp in members">
+                <td>{{tmp.name}}</td>
+                <td>{{tmp.age}}</td>
+            </tr>
+        </table>
+        <hr />
+        {{name}}
+        <input type="text" v-model="name" />
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue( {       
+            el : '#app',
+            data : {
+                massage : 'hello world',
+                name : 'aaa',
+                members : [
+                    {name : 'a1', age : 13},
+                    {name : 'a2', age : 23},
+                    {name : 'a3', age : 33}
+                ]
+            },
+            beforeCreate(){
+                console.log('인스턴스 초기화');
+            },
+            created(){
+                console.log('인스턴스 작성, $e1 사용안됨');
+            },
+            beforeMount(){
+                console.log('마운트 되기 전');
+            },
+            mounted(){
+                console.log('마운트 된 직후 , $e1 사용 가능');
+            },
+            beforeUpdate(){
+                console.log('데이터 변경되기 전');
+            },
+            updated(){
+                console.log('데이터 변경된 후');
+            }
+        });
+
+    </script>
+
+</body>
+</html>

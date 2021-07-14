@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        확인용 : {{chk1}}
+        <input type="checkbox" value="A" v-model="chk1" v-on:change="chk1Change()"/>A
+        <hr />
+        확인용 : {{chk2}}
+        <input type="checkbox" value="A" v-model="chk2" />A
+        <input type="checkbox" value="B" v-model="chk2" />B
+        <input type="checkbox" value="C" v-model="chk2" />C
+        <hr />
+        확인용 : {{rad1}}
+        <input type="radio" value="A" v-model="rad1" >A
+        <input type="radio" value="B" v-model="rad1" >B
+        <hr />
+        확인용 : {{sel1}}
+        <select v-model="sel1">
+            <option disabled value="">선택</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <hr />
+        확인용 : {{sel2}}
+        <select v-model="sel2" multiple>
+            <option disabled value="">선택</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <hr />
+        확인용 : {{sel3}}
+        <select v-model="sel3">
+            <option v-for="tmp in options" v-bind:value="tmp.value">
+                {{tmp.text}}
+            </option>
+        </select>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue( {       
+            el : '#app',
+            data : {
+                chk1 : ['A'],
+                chk2 : ['C','B'],
+                rad1 : ['B'],
+                sel1 : ['B'],
+                sel2 : [],
+                options : [
+                    {text : 'A', value: '1'},
+                    {text : 'B', value: '2'},
+                    {text : 'C', value: '3'},
+                    {text : 'D', value: '4'},
+
+                ],
+
+            },
+            methods:{
+                chk1Change : function() {
+                    if(this.chk1.length ===1){
+                        alert('체크 됨');
+                    }
+                    else{
+                        alert('체크되지 않음');
+                    }
+                }
+            }
+
+        });
+    </script>
+                
+</body>
+</html>

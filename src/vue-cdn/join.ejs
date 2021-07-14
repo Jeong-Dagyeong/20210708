@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+    <h3>회원가입</h3> <hr />
+
+    ID : <input type="text" v-model="userid" placeholder="아이디"/><br />
+    PW : <input type="password" v-model="userpw" placeholder="비밀번호"/><br />
+    PW CHECK : <input type="password" v-model="userpw1" placeholder="비밀번호 확인"/><br />
+    NAME : <input type="text" v-model="username" placeholder="이름"/><br />
+    BIRTH : <input type="text" v-model="userbirth" placeholder="생년월일" /><br />
+    <input type="button" v-on:click="sendData()" value="회원가입" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue( {       
+            el : '#app',
+            data : {
+                userid : '',
+                userpw : '',
+                userpw1 : '',
+                username : '',
+                userbirth : ''
+            },
+            updated() { //데이터의 변화가 생길 때 자동으로 호출되는 함수
+                //console.log(this.userid, this.userpw);
+            },
+            methods : {
+                sendData: async function(){
+                    try {
+                        const headers = {
+                            "Content-Type":"application/json"
+                        };
+                        const obj = {
+                            userid : this.userid,
+                            userpw : this.userpw,
+                            userpw1 : this.userpw1,
+                            username : this.username,
+                            userbirth : this.userbirth
+
+                        };
+                        const response = await axios.post('/api/join.json',obj, {headers});
+                        console.log(response.data);
+                        if(response.data.ret ===1){
+                            alert('회원가입 완료');
+                            window.location.href="/vue/main";
+                        }
+                        else{
+                            alert('회원가입 실패');
+                        }
+                    }
+                    catch (error) {
+                        console.error(error);
+                    }
+                }
+            }
+            
+        });
+    </script>
+    
+</body>
+</html>

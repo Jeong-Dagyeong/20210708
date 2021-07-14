@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="app">
+    <h3>글쓰기</h3>
+    <hr />
+    제목 : <input type="text" v-model="title" placeholder="제목" /><br />
+    내용 : <input type="text" v-model="content" placeholder="내용" /> <br />
+    글쓴이 : <input type="text" v-model="writer" placeholder="글쓴이"/> <br />
+    이미지 : <input type="file" v-on:change="handlerImage($event)" ref="image" /> <br />
+    <input type="button" v-on:click="sendData()" value="작성완료" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+        new Vue( {       
+            el : '#app',
+            data : {
+                title : '',
+                content : '',
+                writer : '',
+                image : ''
+            
+            },
+            updated() { //데이터의 변화가 생길 때 자동으로 호출되는 함수
+                //console.log(updated);
+            },
+
+            methods :{
+                handlerImage(e) {
+                    console.log(e);
+                    this.image = e.target.files[0];
+                },
+
+                async sendData(){
+                    if(this.title ===''){
+                        alert('제목을 입력하세요');
+                        //태그의 속성 중에서 ref='title'인것의 focus()
+                        this.$refs.title.focus();
+                        return; //함수 수행 중단 
+                    }
+                    if(this.content ===''){
+                        alert('내용을 입력하세요');
+                        this.$refs.content.focus();
+                        return;
+                    }
+                    if(this.writer ===''){
+                        alert('내용을 입력하세요');
+                        this.$refs.writer.focus();
+                        return;
+                    }
+
+                    try {
+                        const headers = {
+                            "Content-Type":"multipart.form-data"
+                        };
+                        const obj = new FormData();
+                            obj.append("title", this.title);
+                            obj.append("content", this.content);
+                            obj.append("writer", this.writer);
+                            obj.append("image", this.image);
+                            
+                        
+                        const response = await axios.post('/api/board_write.json',obj, headers);
+                        //console.log(response.data);
+                                            
+                    }
+                    catch (error) {
+                        console.error(error);
+                    }
+
+                }
+            }
+                
+            
+        });
+
+    </script>
+
+</body>
+</html>

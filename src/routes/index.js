@@ -12,6 +12,8 @@ import OrderList from '@/components/OrderList';
 import OrderList1 from '@/components/OrderList1';
 import OrderList2 from '@/components/OrderList2';
 import Admin from '@/components/Admin';
+import ComPropEmit from '@/components/ComPropEmit';
+import CompInsertDelete from '@/components/CompInsertDelete';
 
 // 주소 설정
 const routes= [
@@ -25,6 +27,8 @@ const routes= [
     { path:"/OrderList1", name:"OrderList1", component:OrderList1 },
     { path:"/OrderList2", name:"OrderList2", component:OrderList2 },
     { path:"/Admin", name:"Admin", component:Admin },
+    { path:"/ComPropEmit", name:"ComPropEmit", component:ComPropEmit },
+    { path:"/CompInsertDelete", name:"CompInsertDelete", component:CompInsertDelete },
 ];
 
 const router = createRouter({

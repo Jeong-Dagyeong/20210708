@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/vue/home1">홈</router-link>
+        <router-link to="/vue/login1">로그인</router-link>
+        <router-link to="/vue/join1">회원가입</router-link>
+        <router-link to="/vue/board1">게시판</router-link>
+        <hr />
+        <router-view></router-view>
+        
+
+    </div>
+<!-- npm install vue --save -->
+<!-- npm install vue-router --save -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.1/dist/vue-router.js"></script>
+    <script src="/javascripts/applogin.js"></script>
+    <script src="/javascripts/appjoin.js"></script>
+    <script src="/javascripts/apphome1.js"></script>
+    <script src="/javascripts/appboard.js"></script>
+    <script src="/javascripts/appboardcontent.js"></script>
+    <script src="/javascripts/appboardwrite.js"></script>
+    
+    <script>
+        
+          
+        var appNotFound = {
+            template : `
+                <div>
+                    페이지가 존재하지 않음...
+                </div>
+            `,
+        };
+
+        //위에 추가된 라이브러리를 이용하는 컴포넌트 생성
+        var appRoute = new VueRouter({
+            //mode : 'history',
+            routes : [ 
+                {
+                    path : "/",
+                    redirect : '/vue/home1'
+                },
+                {
+                    path : "*",
+                    component : appNotFound
+                },
+                {   
+                    path : "/vue/hoem1",
+                    name : "home1",
+                    component : appHome1
+                },
+                { 
+                    path : "/vue/login1",
+                    name : "login1",
+                    component : appLogin
+                },
+                { 
+                    path : "/vue/join1",
+                    name : "join1",
+                    component : appJoin
+                },              
+                {
+                    path : "/vue/board1",
+                    name : "board1",
+                    component : appBoard
+                },
+                {
+                    path : "/vue/boardcontent1",
+                    name : "boardcontent1",
+                    component : appBoardContent
+                },
+                {
+                    path : "/vue/boardwrite",
+                    name : "boardwrite",
+                    component : appBoardWrite
+                },
+                
+                
+
+            ]
+        });
+
+        new Vue({
+            el :  '#app',
+                        
+            router : appRoute,
+
+        });
+    </script>
+</body>
+</html>
