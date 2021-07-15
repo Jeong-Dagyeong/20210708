@@ -43,20 +43,24 @@ export default {
                 //express로 code를 전달 후에 code에 해당하는 항목
                 if(code=== 'A'){
                     this.items = [
-                        {code:1, name:'사과', price:111, img:'https://picsum.photos/500/300?image=11'}];
+                        {code:1, name:'꽃다발', price:111, img:'https://picsum.photos/500/300?image=11'}];
                     }
                 if(code=== 'B'){
                     this.items = [
-                        {code:2, name:'배', price:223, img:'https://picsum.photos/500/300?image=12'}];
+                        {code:2, name:'바구니', price:223, img:'https://picsum.photos/500/300?image=12'}];
                     }
                 if(code=== 'C'){
                     this.items = [
-                        {code:3, name:'바나나', price:333, img:'https://picsum.photos/500/300?image=38'}];
+                        {code:3, name:'한송이', price:333, img:'https://picsum.photos/500/300?image=38'}];
                     }
                 if(code=== 'D'){
                     this.items = [
-                        {code:4, name:'약과', price:444, img:'https://picsum.photos/500/300?image=10'}];
+                        {code:4, name:'용돈박스', price:444, img:'https://picsum.photos/500/300?image=10'}];
                     }
+                if(code=== 'E'){
+                this.items = [
+                    {code:4, name:'화분', price:444, img:'https://picsum.photos/500/300?image=10'}];
+                }
             
 
         }
@@ -67,11 +71,11 @@ data : function () {
 
     return{
       items : [],
-      cate : [{title :'의류', code:'A'},
-            {title :'식품', code:'B'},
-            {title :'컴퓨터', code:'C'},
-            {title :'도서', code:'D'},
-            {title :'취미', code:'E'}
+      cate : [{title :'꽃다발', code:'A'},
+            {title :'바구니', code:'B'},
+            {title :'한송이', code:'C'},
+            {title :'용돈박스', code:'D'},
+            {title :'화분', code:'E'}
 
         ]
     }

@@ -32,7 +32,21 @@
 </template>
 
 <script>
+
+
+
 export default {
+  data(){
+    return {
+         
+   }
+  
+
+  },
+  components : {
+
+
+  },
   name: 'HelloWorld',
   props: {
     msg: String

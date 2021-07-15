@@ -44,20 +44,40 @@
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
         </nav>
-
+        </div>
+        <div>
+        <vue-tailwind-pagination v-bind:current="currentPage"
+        v-bind:total="total" v-bind:per-page="perPage"
+        v-on:page-changed="onPageClick($event)">
+        </vue-tailwind-pagination>
         </div>
 
     </div>
 </template>
 
 <script>
+import '@ocrv/vue-tailwind-pagination/dist/style.css'
+import VueTailwindPagination from '@ocrv/vue-tailwind-pagination'
+
     export default {
+        methods :{
+            onPageClick(e,e1){
+                console.log(e,e1);
+                this.currentPage = e;
+            }
+        },
         name: 'Board',
         data : function(){
             return {
             items : null,
+            currentPage: 1,
+            perPage: 1,
+            total: 20
             }
         
+    },
+    components :{
+        VueTailwindPagination,
     },
     mounted () {
         //express 에서 값을 받아서 result에 보관

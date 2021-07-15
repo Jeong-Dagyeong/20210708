@@ -14,6 +14,9 @@ import OrderList2 from '@/components/OrderList2';
 import Admin from '@/components/Admin';
 import ComPropEmit from '@/components/ComPropEmit';
 import CompInsertDelete from '@/components/CompInsertDelete';
+import CompSlot from '@/components/CompSlot';
+import About from '@/components/About';
+import TableCopyMove from '@/components/TableCopyMove';
 
 // 주소 설정
 const routes= [
@@ -29,6 +32,9 @@ const routes= [
     { path:"/Admin", name:"Admin", component:Admin },
     { path:"/ComPropEmit", name:"ComPropEmit", component:ComPropEmit },
     { path:"/CompInsertDelete", name:"CompInsertDelete", component:CompInsertDelete },
+    { path:"/CompSlot", name:"CompSlot", component:CompSlot },
+    { path:"/About", name:"About", component:About },
+    { path:"/TableCopyMove", name:"TableCopyMove", component:TableCopyMove },
 ];
 
 const router = createRouter({

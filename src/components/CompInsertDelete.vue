@@ -15,14 +15,8 @@
             </tr>
         </table>
         <hr />
-        <fieldset>
-        <legend v-on:choose="cloData">Clothes</legend>
-        {{clo}}
-        
-        </fieldset>
-
     </div>
-</template>s
+</template>
 
 <script>
 import Comp2 from './Comp2.vue';
@@ -40,9 +34,9 @@ import Comp3 from './Comp3.vue';
             }
         },
         methods : {
-            cloData(clo){
+            
 
-            },
+            
             recvData(mem, idx) {
                 //console.log(idx2,mem);
                 this.compData[idx] = mem;

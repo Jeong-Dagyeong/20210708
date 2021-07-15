@@ -2,7 +2,7 @@
 <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Wellcome to 다경's homepage</a>
+    <a class="navbar-brand" href="#">Flower Poem</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -45,7 +45,7 @@
 
 </div>
 
-<div class="alert alert-primary" role="alert">홈페이지에 오신걸 환영합니다!!!!!!!!!!!</div>
+<div class="alert alert-primary" role="alert">instagram : https://www.instagram.com/_flowerpoem/</div>
   
     <router-view></router-view>
   
