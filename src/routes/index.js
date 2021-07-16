@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory} from "vue-router";
+import { createRouter, createWebHashHistory} from "vue-router";
 
 // 컴포넌트 가져오기
 //import HelloWorld from '@/components/HelloWorld';
@@ -17,6 +17,8 @@ import CompInsertDelete from '@/components/CompInsertDelete';
 import CompSlot from '@/components/CompSlot';
 import About from '@/components/About';
 import TableCopyMove from '@/components/TableCopyMove';
+import DragTable from '@/components/DragTable';
+import StyleTable from '@/components/StyleTable';
 
 // 주소 설정
 const routes= [
@@ -26,19 +28,21 @@ const routes= [
     { path:"/board", name:"Board", component:Board },
     { path:"/boardContent", name:"BoardContent", component:BoardContent },
     { path:"/shop", name:"Shop", component:Shop },
-    { path:"/OrderList", name:"OrderList", component:OrderList },
-    { path:"/OrderList1", name:"OrderList1", component:OrderList1 },
-    { path:"/OrderList2", name:"OrderList2", component:OrderList2 },
-    { path:"/Admin", name:"Admin", component:Admin },
-    { path:"/ComPropEmit", name:"ComPropEmit", component:ComPropEmit },
-    { path:"/CompInsertDelete", name:"CompInsertDelete", component:CompInsertDelete },
-    { path:"/CompSlot", name:"CompSlot", component:CompSlot },
-    { path:"/About", name:"About", component:About },
-    { path:"/TableCopyMove", name:"TableCopyMove", component:TableCopyMove },
+    { path:"/orderlist", name:"OrderList", component:OrderList },
+    { path:"/orderlist1", name:"OrderList1", component:OrderList1 },
+    { path:"/orderlist2", name:"OrderList2", component:OrderList2 },
+    { path:"/admin", name:"Admin", component:Admin },
+    { path:"/compropemit", name:"ComPropEmit", component:ComPropEmit },
+    { path:"/compinsertdelete", name:"CompInsertDelete", component:CompInsertDelete },
+    { path:"/compslot", name:"CompSlot", component:CompSlot },
+    { path:"/about", name:"About", component:About },
+    { path:"/tablecopymove", name:"TableCopyMove", component:TableCopyMove },
+    { path:"/dragtable", name:"DragTable", component:DragTable },
+    { path:"/styletable", name:"StyleTable", component:StyleTable },
 ];
 
 const router = createRouter({
-    history:createWebHistory(),
+    history:createWebHashHistory(),
     routes
 })
 

@@ -43,23 +43,43 @@ export default {
                 //express로 code를 전달 후에 code에 해당하는 항목
                 if(code=== 'A'){
                     this.items = [
-                        {code:1, name:'꽃다발', price:111, img:'https://picsum.photos/500/300?image=11'}];
+                        {code:1, name:'사과', price:111, img:'https://picsum.photos/500/300?image=11'}];
+                    }
+                if(code=== 'A'){
+                    this.items = [
+                        {code:1, name:'바나나', price:223, img:'https://picsum.photos/500/300?image=12'}];
                     }
                 if(code=== 'B'){
                     this.items = [
-                        {code:2, name:'바구니', price:223, img:'https://picsum.photos/500/300?image=12'}];
+                        {code:2, name:'당근', price:333, img:'https://picsum.photos/500/300?image=38'}];
+                    }
+                if(code=== 'B'){
+                    this.items = [
+                        {code:2, name:'오이', price:444, img:'https://picsum.photos/500/300?image=10'}];
                     }
                 if(code=== 'C'){
-                    this.items = [
-                        {code:3, name:'한송이', price:333, img:'https://picsum.photos/500/300?image=38'}];
-                    }
+                this.items = [
+                    {code:3, name:'꼬깔콘', price:555, img:'https://picsum.photos/500/300?image=16'}];
+                }
+                if(code=== 'C'){
+                this.items = [
+                    {code:3, name:'고래밥', price:666, img:'https://picsum.photos/500/300?image=12'}];
+                }
                 if(code=== 'D'){
-                    this.items = [
-                        {code:4, name:'용돈박스', price:444, img:'https://picsum.photos/500/300?image=10'}];
-                    }
+                this.items = [
+                    {code:4, name:'비타500', price:777, img:'https://picsum.photos/500/300?image=26'}];
+                }
+                if(code=== 'D'){
+                this.items = [
+                    {code:4, name:'포카리스웨트', price:888, img:'https://picsum.photos/500/300?image=27'}];
+                }
                 if(code=== 'E'){
                 this.items = [
-                    {code:4, name:'화분', price:444, img:'https://picsum.photos/500/300?image=10'}];
+                    {code:5, name:'더위사냥', price:999, img:'https://picsum.photos/500/300?image=33'}];
+                }
+                if(code=== 'E'){
+                this.items = [
+                    {code:5, name:'스크류바', price:123, img:'https://picsum.photos/500/300?image=25'}];
                 }
             
 
@@ -71,11 +91,11 @@ data : function () {
 
     return{
       items : [],
-      cate : [{title :'꽃다발', code:'A'},
-            {title :'바구니', code:'B'},
-            {title :'한송이', code:'C'},
-            {title :'용돈박스', code:'D'},
-            {title :'화분', code:'E'}
+      cate : [{title :'과일', code:'A'},
+            {title :'야채', code:'B'},
+            {title :'과자', code:'C'},
+            {title :'음료', code:'D'},
+            {title :'아이스크림', code:'E'}
 
         ]
     }
@@ -85,9 +105,15 @@ mounted(){
     //express에서 목록을 받음 [{},{},{}]
     const result= [
         {code:1, name:'사과', price:111, img:'https://picsum.photos/500/300?image=11'},
-        {code:2, name:'배', price:223, img:'https://picsum.photos/500/300?image=12'},
-        {code:3, name:'바나나', price:333, img:'https://picsum.photos/500/300?image=38'},
-        {code:4, name:'약과', price:444, img:'https://picsum.photos/500/300?image=10'},
+        {code:1, name:'바나나', price:223, img:'https://picsum.photos/500/300?image=12'},
+        {code:2, name:'당근', price:333, img:'https://picsum.photos/500/300?image=38'},
+        {code:2, name:'오이', price:444, img:'https://picsum.photos/500/300?image=10'},
+        {code:3, name:'꼬깔콘', price:555, img:'https://picsum.photos/500/300?image=16'},
+        {code:3, name:'고래밥', price:666, img:'https://picsum.photos/500/300?image=12'},
+        {code:4, name:'비타500', price:777, img:'https://picsum.photos/500/300?image=26'},
+        {code:4, name:'포카리스웨트', price:888, img:'https://picsum.photos/500/300?image=27'},
+        {code:5, name:'더위사냥', price:999, img:'https://picsum.photos/500/300?image=33'},
+        {code:5, name:'스크류바', price:123, img:'https://picsum.photos/500/300?image=25'},
     ];
     this.items = result;
     }

@@ -59,26 +59,59 @@
             
         },
         methods:{
+            
             moveRight(){
-                let items1 = [];
-                for(let i=0; i<this.items1.length; i++){
-                    if(this.items1 === true);
-                    this.items1[i]['chk'] = false;
+                    let tmp = []; //임시변수, 이동하지 않는 내용보관
+                    
+                    for(let i=0; i<this.items1.length; i++){
+                        if(this.items1[i].chk === true){
+                        this.items2.push(this.items1[i]);
+                    }
+                    //체크하지 않은 항목 : 남겨둬야하는 항목
+                    else{
+                        tmp.push(this.items1[i]);
+                    }
                 }
-
-                       
-                
-
+                //tmp에 있는 체크하지 않은 항목으로 넣음
+                this.items1 = tmp;
             },
+
             moveLeft(){
-
+                    let tmp = []; //임시변수, 이동하지 않는 내용보관
+                    
+                    for(let i=0; i<this.items2.length; i++){
+                        if(this.items2[i].chk === true){
+                        this.items1.push(this.items2[i]);
+                    }
+                    //체크하지 않은 항목 : 남겨둬야하는 항목
+                    else{
+                        tmp.push(this.items2[i]);
+                    }
+                }
+                //tmp에 있는 체크하지 않은 항목으로 넣음
+                this.items2 = tmp;
             },
+    
             copyRight(){
+                //items1에서 items2로 체크된 항목만 복사
+                 for(let i=0; i<this.items1.length; i++){
+                        if(this.items1[i].chk === true){
+                        this.items2.push(Object.create(this.items1[i]));
+                    }
+                 }
    
             },
             copyLeft(){
+                //items1에서 items2로 체크된 항목만 복사
+                 for(let i=0; i<this.items2.length; i++){
+                        if(this.items2[i].chk === true){
+                        this.items1.push(Object.create(this.items2[i]));
+                    }
+                 }
+   
+            },
 
-            }
+        
         },
         components : {
             

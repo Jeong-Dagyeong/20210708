@@ -12,6 +12,9 @@
           <router-link to="/" class="nav-link active" aria-current="page">Home</router-link>
         </li>
         <li class="nav-item">
+          <router-link to="/login" class="nav-link active" aria-current="page">About</router-link>
+        </li>
+        <li class="nav-item">
           <router-link to="/login" class="nav-link active" aria-current="page">Login</router-link>
         </li>
         <li class="nav-item dropdown">
@@ -31,7 +34,27 @@
           <router-link to="/shop" class="nav-link active" aria-current="page">Shop</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/OrderList2" class="nav-link active" aria-current="page">OrderList2</router-link>
+          <router-link to="/orderlist" class="nav-link active" aria-current="page">OrderList</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/boardcontent" class="nav-link active" aria-current="page">BoardContent</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/compInsertdelete" class="nav-link active" aria-current="page">CompInsertDelete</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/compropemit" class="nav-link active" aria-current="page">ComPropEmit</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/compslot" class="nav-link active" aria-current="page">CompSlot</router-link>
+        </li><li class="nav-item">
+          <router-link to="/dragtable" class="nav-link active" aria-current="page">Dragtable</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/styletable" class="nav-link active" aria-current="page">StyleTable</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/tablecopymove" class="nav-link active" aria-current="page">TableCopyMove</router-link>
         </li>
       </ul>
       <form class="d-flex" >
